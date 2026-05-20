@@ -4,3 +4,4 @@ def main_menu():
   print("Student Login")
   print("Exit")
   print("========================================")
+main_menu()
