@@ -1,1 +1,5 @@
-print("Hi")
+def main_menu():
+  print("================================================================================")
+  print("Administrator Login")
+  print("Student Login")
+  print("Exit")
