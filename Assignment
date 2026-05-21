@@ -1,5 +1,6 @@
 def main_menu():
   while True:
+#while True function used to infinite loop the main menu
     print("=========================================")
     print("                                                              ")
     print("Administrator Login, type 1")
@@ -7,6 +8,7 @@ def main_menu():
     print("Exit, type 3")
     print("                                                              ")
     print("=========================================")
+
     choice = int(input("Enter your choice="))
     if choice==1:
         Admin_id=input("Enter your Admin ID:")
@@ -20,4 +22,5 @@ def main_menu():
     else:
         print("Invalid choice. Please try again.")
 
+#Direct start the main menu function
 main_menu()
