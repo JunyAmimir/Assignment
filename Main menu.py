@@ -9,10 +9,10 @@ def main_menu():
     print("                                                              ")
     print("=========================================")
 
-    choice = int(input("Enter your choice="))
+    choice = int(input("Enter your choice: "))
     if choice==1:
-        Admin_id=input("Enter your Admin ID:")
-        Admin_password=input("Enter your Admin Password:")
+        Admin_id=input("Enter your Admin ID: ")
+        Admin_password=input("Enter your Admin Password: ")
         file=open("Admin.txt","r")
         correct=file.read().strip()
         file.close()
@@ -21,8 +21,8 @@ def main_menu():
         else:
             print("Invalid Admin ID or Password. Please try again.")
     elif choice==2:
-        Student_id=input("Enter your Student ID:")
-        Student_password=input("Enter your Student Password:")
+        Student_id=input("Enter your Student ID: ")
+        Student_password=input("Enter your Student Password: ")
         file=open("Student.txt","r")
         correct=file.read().strip()
         file.close()
