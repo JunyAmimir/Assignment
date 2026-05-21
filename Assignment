@@ -9,9 +9,11 @@ def main_menu():
     print("=========================================")
     choice = int(input("Enter your choice="))
     if choice==1:
-        print("Welcome to the Administrator Login!")
+        Admin_id=input("Enter your Admin ID:")
+        Admin_password=input("Enter your Admin Password:")
     elif choice==2:
-        print("Welcome to the Student Login!")
+        Student_id=input("Enter your Student ID:")
+        Student_password=input("Enter your Student Password:")
     elif choice==3:
         print("Thank you for using the system. Goodbye!")
         break
