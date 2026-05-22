@@ -18,3 +18,17 @@ def register_courses(students_id):
                 courses[parts[0].strip()]=[parts[1].strip(),parts[2].strip()]
     print("Error:Courses.txt not fount")
     return
+#students currents enrollments
+my_courses={}
+try:
+    with open("Enrollments.txt","r") as f:
+        for line in f:
+            parts=line.strip().split(",")
+            if len(parts)==2 and parts[0].strip()==STUDENTS_FILE:
+                my_courses.append(parts[1])
+except FileNotFoundError:
+    pass
+
+##check if the student registered for more than 1 course
+if len(my_courses)>=Maximum_Courses:
+    print(f"You have already registered {Maximum_Courses} courses")
