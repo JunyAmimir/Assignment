@@ -1,0 +1,38 @@
+#Data Storage (text file)
+STUDENTS_FILE="Students.txt"
+COURSES_FILE="Courses.txt"
+ENROLLMENTS="Enrollments.txt"
+RESULTS="Results.txt"
+
+#GPA
+GPA={"A+":4.00,"A":3.70,"B+":3.30,"B":3.00,"C+":2.70,"C":2.30,"D+":1.70,"D":1.30,"F":1.00,"F-":0.00}
+
+#Login
+def Student_login():
+    print("\n-----Student Login-----")
+    student_id=int(input("Enter Student ID: "))
+    password=int(input("Enter Password: "))
+
+    with open("Students.txt","r") as f:
+        for line in f:
+            parts=line.split().split(",")
+            if len(parts)==3:
+                Student_id,Student_name,Password = parts
+                if Student_id.strip()==Student_id and Password.strip()==Password:
+                    print("Login Successful")
+                    return Student_id,Student_name,Password
+
+    print("Invaild ID or Password.")
+    return None
+
+#Register Course
+def register_courses(students_id):
+    print("\n-----Register Courses-----")
+    courses={}
+    with open("Courses.txt","r") as f:
+        for line in f:
+            parts=line.strip().split(",")
+            if len(parts)==3:
+                courses[parts[0].strip()]=[parts[1].strip(),parts[2].strip()]
+    print("Error:Courses.txt not fount")
+    return
