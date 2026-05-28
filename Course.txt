@@ -1,6 +1,6 @@
-98765,Diploma in Business Information Technology
-00123,Diploma in Accounting
-98362,Diploma in Events Management
-66785,Diploma in Design and Media
-56789,Diploma in International Studies
+98765,Diploma_in_Business_Information_Technology
+00123,Diploma_in_Accounting
+98362,Diploma_in_Events_Management
+66785,Diploma_in_Design_and_Media
+56789,Diploma_in_International_Studies
 PP001,Python Progamming,105
