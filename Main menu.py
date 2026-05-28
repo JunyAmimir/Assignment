@@ -30,6 +30,8 @@ def main_menu():
             file.close()
             if Student_id==correct[0] and Student_password==correct[1]:
                 print("Login successful!")
+                student_menu(Student_id)
+                break
             else:
                 print("Invalid Student ID or Password. Please try again.")
         elif choice==3:
