@@ -65,7 +65,7 @@ def admin_menu():
             generate()
         elif choice==5:
             print("Logging out... Redirect to Main Menu")
-            main_menu()
+            break
         else:
             print("Invalid choice. Please try again.")
 
