@@ -73,7 +73,7 @@ for code,info in my_courses.items():
     tag="<enrollment>"if code in my_courses else""
 
     print(f"{'Code'}{'Info[0]'}")
-choice=int(input("Enter Course.txt Code to Register(Press 0 to cancel):"))
+choice=int(input("Enter the course code to register(Press 0 to cancel):"))
 if choice=="0":
     print("Cancelling...")
 
