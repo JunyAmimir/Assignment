@@ -102,7 +102,7 @@ def add_student():
     student_pass=input("Enter new Student Password: ").strip()
 
     try:
-        with open ('Students.txt','r') as file:
+        with open ('Student.txt','r') as file:
             for line in file:
                 data=line.strip().split(",")
                 if data[0]==student_id:
@@ -111,7 +111,7 @@ def add_student():
     except FileNotFoundError:
         pass
     try:
-        with open ('Students.txt','a') as file:
+        with open ('Student.txt','a') as file:
             file.write(f"{student_id},{student_pass}\n")
         print("Student added successfully!")
     except Exception as e:
@@ -125,7 +125,7 @@ def update_student():
     records=[]
     
     try:
-        with open('Students.txt','r') as file:
+        with open('Student.txt','r') as file:
             for line in file:
                 data=line.strip().split(',')
                 if data[0]==student_id:
@@ -140,7 +140,7 @@ def update_student():
                     records.append(line)
         
         if updated:
-            with open('Students.txt','w') as file:
+            with open('Student.txt','w') as file:
                 file.writelines(records)
             print("Student updated successfully!")
         else:
@@ -156,7 +156,7 @@ def remove_student():
     records=[]
 
     try:
-        with open('Students.txt','r') as file:
+        with open('Student.txt','r') as file:
             for line in file:
                 data=line.strip().split(',')
                 if data[0]!=student_id:
@@ -165,7 +165,7 @@ def remove_student():
                     removed=True
 
         if removed:
-            with open('Students.txt','w') as file:
+            with open('Student.txt','w') as file:
                 file.writelines(records)
             print("Student removed successfully!")
         else:
@@ -208,7 +208,7 @@ def add_course():
         print("Error! Course code must be alphanumeric and Credit hours must be numeric.")
         return
     try:
-        with open('Course.txt','r') as file:
+        with open('Courses.txt','r') as file:
             for line in file:
                 if line.startswith(course_code+','):
                     print("Error! Course Code already exists.")
@@ -216,7 +216,7 @@ def add_course():
     except FileNotFoundError:
         pass
     try:
-        with open('Course.txt', 'a') as file:
+        with open('Courses.txt', 'a') as file:
             file.write(f"{course_code},{course_name},{credit_hours}\n")
         print("Course added successfully.")
     except Exception as e:
@@ -229,7 +229,7 @@ def update_course():
     updated=False
     records=[]
     try:
-        with open('Course.txt','r') as file:
+        with open('Courses.txt','r') as file:
             for line in file:
                 data=line.strip().split(',')
                 if data[0]==course_code:
@@ -246,7 +246,7 @@ def update_course():
                 else:
                     records.append(line)
         if updated:
-            with open('Course.txt','w') as file:
+            with open('Courses.txt','w') as file:
                 file.writelines(records)
             print("Course updated successfully!")
         elif not updated and len(records)>0:
@@ -299,7 +299,7 @@ def generate():
 #Generate Student Report function
 def student_report():
     try:
-        with open('Students.txt','r') as file:
+        with open('Student.txt','r') as file:
             lines=file.readlines()
         if not lines:
             print("No students registered.")
