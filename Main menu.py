@@ -364,7 +364,7 @@ def student_menu(student_id):
         print("Register Course, type 1")
         print("View Register Course type 2")
         print("View Result and GPA, type 3")
-        print("Back to Main Menu, type 4")
+        print("Back to Student Menu, type 4")
         print("                                    ")
         print("=====================================")
 
@@ -383,7 +383,7 @@ def student_menu(student_id):
             view_result(student_id)
         elif choice==4:
             print("Back to Menu")
-            break
+            student_menu
         else:
             print("Invalid Choice Please try again")
 
