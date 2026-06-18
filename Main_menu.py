@@ -414,10 +414,10 @@ def register_course(student_id):
         with open("Courses.txt","r") as f:
             for line in f:
                 parts=line.strip().split(",")
-                if len(parts)>=2:
+                if len(parts)==2:
                     courses[parts[0].strip()]=parts[1].strip()
     except FileNotFoundError:
-        print("Error:Courses.txt not found")
+        print("Error:Courses.txt not fount")
         return
         
     #students currents enrollments
@@ -426,7 +426,7 @@ def register_course(student_id):
         with open("Enrollments.txt","r") as f:
             for line in f:
                 parts=line.strip().split(",")
-                if len(parts)==2 and parts[0].strip().lower()== student_id.lower():
+                if len(parts)==2 and parts[0].strip()==student_id.lower():
                     my_courses.append(parts[1].strip())
     except FileNotFoundError:
         pass
@@ -438,24 +438,24 @@ def register_course(student_id):
 
 
 #Show available course
-    print(f"\n{'Code':<15}{'Course Name':<30}{'Status'}")
-    for code,name in courses.items():
-        tag="<enrolled>" if code in my_courses else ""
-        print(f"{code:<15}{name:<30}{tag}")
+    print(f"\n{'code'}{'Courses Name'}")
+    for code,name in my_courses.items():
+        tag="<enrolled>"if code in my_courses else""
+        print(f"{'Code'}{name}{tag}")
 
-    choice=input("Enter Course Code to Register (Press 0 to cancel): ").strip()
+    choice=int(input("Enter Courses.txt Code to Register(Press 0 to cancel):"))
 
     if choice=="0":
-        print("Cancelling...")
+        print("Cancelled")
 
-    elif choice not in courses:
+    elif choice not in my_courses:
         print("Invalid Choice Please try again")
     elif choice in my_courses:
         print("You are already registered in this course")
     else:
         with open("Enrollments.txt","a") as f:
-            f.write(f"{student_id},{choice}\n")
-        print(f"Successfully registered: {courses[choice]}")
+            f.write(f"{'student_id'},{choice}\n")
+        print("Successfully registered: {courses[choice]}")
 
 #View Register Courses
 def view_registered_course(student_id):
