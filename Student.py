@@ -85,7 +85,7 @@ def register_course(student_id):
                 if len(parts)==2:
                     courses[parts[0].strip()]=parts[1].strip()
     except FileNotFoundError:
-        print("Error:Courses.txt not found")
+        print("Error:Courses.txt not fount")
         return
         
     #students currents enrollments
@@ -108,13 +108,13 @@ def register_course(student_id):
 #Show available course
     print(f"\n{'code'}{'Courses Name'}")
     for code,name in my_courses.items():
-        tag="<enrollment>"if code in my_courses else""
+        tag="<enrolled>"if code in my_courses else""
         print(f"{'Code'}{name}{tag}")
 
     choice=int(input("Enter Courses.txt Code to Register(Press 0 to cancel):"))
 
     if choice=="0":
-        print("Cancelling...")
+        print("Cancelled")
 
     elif choice not in my_courses:
         print("Invalid Choice Please try again")
@@ -124,7 +124,7 @@ def register_course(student_id):
         with open("Enrollments.txt","a") as f:
             f.write(f"{'student_id'},{choice}\n")
         print("Successfully registered: {courses[choice]}")
-
+        
 #View Register Courses
 def view_registered_course(student_id):
     print("\n-----View Registered Courses-----")
