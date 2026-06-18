@@ -439,7 +439,7 @@ def register_course(student_id):
 
 #Show available course
     print(f"\n{'code'}{'Courses Name'}")
-    for code,name in my_courses.items():
+    for code,name in courses.items():
         tag="<enrolled>"if code in my_courses else""
         print(f"{'Code'}{name}{tag}")
 
