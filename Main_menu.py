@@ -438,23 +438,23 @@ def register_course(student_id):
 
 
 #Show available course
-    print(f"\n{'code'}{'Courses Name'}")
+    print(f"\n{'Code'} {'Courses Name'}")
     for code,name in courses.items():
         tag="<enrolled>"if code in my_courses else""
-        print(f"{'Code'}{name}{tag}")
+        print(f"{code} {name}{tag}")
 
-    choice=int(input("Enter Courses.txt Code to Register(Press 0 to cancel):"))
+    choice=input("Enter Courses.txt Code to Register(Press 0 to cancel):").strip()
 
     if choice=="0":
         print("Cancelled")
 
-    elif choice not in my_courses:
-        print("Invalid Choice Please try again")
+    elif choice not in courses:
+            print("Course not found. Please try again")
     elif choice in my_courses:
         print("You are already registered in this course")
     else:
         with open("Enrollments.txt","a") as f:
-            f.write(f"{'student_id'},{choice}\n")
+            f.write(f"{student_id},{choice}\n")
         print("Successfully registered: {courses[choice]}")
 
 #View Register Courses
@@ -465,7 +465,7 @@ def view_registered_course(student_id):
         with open("Courses.txt","r") as f:
             for line in f:
                 parts=line.strip().split(",")
-                if len(parts)>=2:
+                if len(parts)==2:
                     courses[parts[0].strip()]=parts[1].strip()
     except FileNotFoundError:
         print("Error:Courses.txt not fount")
@@ -476,7 +476,7 @@ def view_registered_course(student_id):
         with open("Enrollments.txt","r") as f:
             for line in f:
                 parts=line.strip().split(",")
-                if len(parts)==2 and parts[0].strip().lower()==student_id.lower():
+                if len(parts)==2 and parts[0].strip()==student_idudent_id.lower():
                     my_courses.append(parts[1].strip())
     except FileNotFoundError:
         pass
@@ -485,7 +485,7 @@ def view_registered_course(student_id):
         print("You have not registered any courses")
         return
 
-    print(f"\n{'Code':<15}{'Course Name'}")
+    print(f"\n{'Code':<15} {'Courses Name'}")
     for i, code in enumerate(my_courses,1):
         if code in courses:
             print(f"{code},{courses[code]}")
