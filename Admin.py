@@ -28,7 +28,7 @@ def admin_main_menu():
             print("Invalid choice. Please try again.")
 
 #Storage
-Students_Data='Students.txt'
+Students_Data='Student.txt'
 Course_Data='Course.txt'
 Enrollment_Data='Enrollments.txt'
 
@@ -62,7 +62,7 @@ def add_student():
     student_pass=input("Enter new Student Password: ").strip()
 
     try:
-        with open ('Students.txt','r') as file:
+        with open ('Student.txt','r') as file:
             for line in file:
                 data=line.strip().split(",")
                 if data[0]==student_id:
@@ -71,7 +71,7 @@ def add_student():
     except FileNotFoundError:
         pass
     try:
-        with open ('Students.txt','a') as file:
+        with open ('Student.txt','a') as file:
             file.write(f"{student_id},{student_pass}\n")
         print("Student added successfully!")
     except Exception as e:
@@ -85,7 +85,7 @@ def update_student():
     records=[]
     
     try:
-        with open('Students.txt','r') as file:
+        with open('Student.txt','r') as file:
             for line in file:
                 data=line.strip().split(',')
                 if data[0]==student_id:
@@ -100,7 +100,7 @@ def update_student():
                     records.append(line)
         
         if updated:
-            with open('Students.txt','w') as file:
+            with open('Student.txt','w') as file:
                 file.writelines(records)
             print("Student updated successfully!")
         else:
@@ -116,7 +116,7 @@ def remove_student():
     records=[]
 
     try:
-        with open('Students.txt','r') as file:
+        with open('Student.txt','r') as file:
             for line in file:
                 data=line.strip().split(',')
                 if data[0]!=student_id:
@@ -125,7 +125,7 @@ def remove_student():
                     removed=True
 
         if removed:
-            with open('Students.txt','w') as file:
+            with open('Student.txt','w') as file:
                 file.writelines(records)
             print("Student removed successfully!")
         else:
@@ -253,7 +253,7 @@ def generate():
 #Generate Student Report function
 def student_report():
     try:
-        with open('Students.txt','r') as file:
+        with open('Student.txt','r') as file:
             lines=file.readlines()
         if not lines:
             print("No students registered.")

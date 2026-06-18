@@ -67,7 +67,7 @@ def student_login():
                         print(f"Welcome {student_id}")
                         return student_id
     except FileNotFoundError:
-        print("Error:Student.txt not fount")
+        print("Error:Student.txt not found")
         return None
     print("Invalid Student id or Password.")
     return None
@@ -85,7 +85,7 @@ def register_course(student_id):
                 if len(parts)==2:
                     courses[parts[0].strip()]=parts[1].strip()
     except FileNotFoundError:
-        print("Error:Courses.txt not fount")
+        print("Error:Courses.txt not found")
         return
         
     #students currents enrollments
@@ -94,7 +94,7 @@ def register_course(student_id):
         with open("Enrollments.txt","r") as f:
             for line in f:
                 parts=line.strip().split(",")
-                if len(parts)==2 and parts[0].strip()+student_id.lower():
+                if len(parts)==2 and parts[0].strip()==student_id.lower():
                     my_courses.append(parts[1].strip())
     except FileNotFoundError:
         pass
