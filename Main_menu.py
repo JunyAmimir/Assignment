@@ -476,7 +476,7 @@ def view_registered_course(student_id):
         with open("Enrollments.txt","r") as f:
             for line in f:
                 parts=line.strip().split(",")
-                if len(parts)==2 and parts[0].strip()==student_idudent_id.lower():
+                if len(parts)==2 and parts[0].strip()==student_id.lower():
                     my_courses.append(parts[1].strip())
     except FileNotFoundError:
         pass
