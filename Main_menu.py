@@ -164,7 +164,6 @@ def update_student():
                     new_password=input(f"Enter new password: ").strip()
                     if new_password:
                         records.append(f"{student_id},{new_password}\n")
-                        #\n used for next line
                         updated=True
                     else:
                         records.append(line)
@@ -209,10 +208,11 @@ def remove_student():
 #Couse Info Menu function 
 def course_info():
     while True:
+        print("Course Information Management")
         print("                                       ")
         print("=======================================")
         print("Add Course, type 1")
-        print("Update Course etails, type 2")
+        print("Update Course Details, type 2")
         print("Back to Admin Menu, type 3")
         print("=======================================")
         print("                                       ")
@@ -407,7 +407,8 @@ Maximum_Courses=3
 
 #Register Courses
 def register_course(student_id):
-    print("\n-----Register Courses-----")
+    print("\n-----Register My Courses-----")
+    print(f"Your Student ID: {student_id}")
 
     courses={}
     try:
